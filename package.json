@@ -1,31 +1,45 @@
 {
-  "name": "gmv",
+  "name": "glops",
   "version": "0.0.1",
   "type": "module",
   "packageManager": "pnpm@8.6.0",
-  "description": "glob files",
+  "description": "Library and CLI tools to perform operations on files and directories matched with glob patterns.",
   "author": "Nex Zhu <hitnexup@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/daotl/ts-lib-starter#readme",
+  "homepage": "https://github.com/daotl/glops#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/daotl/ts-lib-starter.git"
+    "url": "git+https://github.com/daotl/glops.git"
   },
   "bugs": {
-    "url": "https://github.com/daotl/ts-lib-starter/issues"
+    "url": "https://github.com/daotl/glops/issues"
   },
   "keywords": [
     "TypeScript",
     "library"
   ],
-  "main": "dist/index.cjs",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "bin": {
+    "gmv": "./bin/gmv.js",
+    "gcp": "./bin/gcp.js"
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "default": "./dist/index.js",
+        "types": "./dist/index.d.ts"
+      },
+      "require": {
+        "default": "./dist/index.cjs",
+        "types": "./dist/index.d.cts"
+      }
+    }
+  },
   "files": [
-    "dist"
+    "dist",
+    "bin"
   ],
   "scripts": {
-    "build": "tsup src/**/*.ts",
+    "build": "tsup src/**/*.ts && ./bin/gcp.js ./dist/**/*.d.ts {p}{n}.cts",
     "test": "jest",
     "lint": "rome format . && rome check .",
     "lint:fix": "rome format --write . && rome check --apply .",
@@ -34,6 +48,9 @@
   },
   "resolutions": {
     "load-tsconfig": "^0.2.5"
+  },
+  "dependencies": {
+    "fast-glob": "^3.2.12"
   },
   "devDependencies": {
     "@anatine/esbuild-decorators": "^0.2.19",
@@ -57,8 +74,5 @@
     "tslib": "^2.5.3",
     "tsup": "^6.7.0",
     "typescript": "^5.1.3"
-  },
-  "dependencies": {
-    "globby": "^13.1.4"
   }
 }
