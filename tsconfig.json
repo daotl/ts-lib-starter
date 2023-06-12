@@ -4,7 +4,12 @@
     "tsBuildInfoFile": "./tsconfig.tsbuildinfo",
     "baseUrl": ".",
     "paths": {
-      "~/*": ["src/*"]
+      "~/*": [
+        "src/*"
+      ]
     }
-  }
+  },
+  "include": [
+    "src/**/*"
+  ]
 }
