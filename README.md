@@ -6,6 +6,10 @@ Also provides CLI tools: `gmv` for `mv`, and `gcp` for `cp` with glob patterns.
 
 ## Usage
 
+```sh
+npm install glops
+```
+
 ```ts
 op: (
   fn: (file: string, dest: string) => Promise<void>,
@@ -27,10 +31,10 @@ import fs from 'node:fs/promises'
 import { op, gmv, gcp } from 'glops'
 
 // mv files with glob
-const myGmv = op(fs.rename) // This is exactly how gmv is implemented
+const myGmv = op(fs.rename)
 
 // cp files with glob
-const myGcp = op(fs.copyFile) // This is exactly how gcp is implemented
+const myGcp = op(fs.copyFile)
 
 await gmv(['./dist/**/*.js'], '{p}{n}.cjs')
 

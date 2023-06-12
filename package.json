@@ -1,6 +1,6 @@
 {
   "name": "glops",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "type": "module",
   "packageManager": "pnpm@8.6.0",
   "description": "Library and CLI tools to perform operations on files and directories matched with glob patterns.",

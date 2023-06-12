@@ -4,7 +4,7 @@ import { gcp } from '../dist/index.js'
 
 const l = process.argv.length
 if (l < 4) {
-  console.log('Usage: gmv GLOB DEST_PATTERN')
+  console.log('Usage: gcp GLOB DEST_PATTERN')
   process.exit(1)
 }
 
