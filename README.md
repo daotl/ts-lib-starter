@@ -21,7 +21,7 @@ To run `Jest` test:
 pnpm test
 ```
 
-To lint with `Rome`:
+To lint with `Biome`:
 ```sh
 pnpm lint
 ```

@@ -1,0 +1,10 @@
+pre-commit:
+  commands:
+    biome:
+      glob: '*'
+      run: echo {staged_files} | tr ' ' '\n' | grep \\.[cm]\\?[jt]s$ | tr '\n' ' ' | xargs -i sh -c 'echo npx biome format --write {} && npx biome check --apply {}' && git add {staged_files}
+
+commit-msg:
+  scripts:
+    "commitlint.sh":
+      runner: bash
